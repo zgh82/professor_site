@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>پنل استاد</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="logo.png" class="university-logo">
+    <h1>پنل استاد</h1>
+  </div>
+
+  <span>دکتر راحمی | دانشکده مهندسی برق</span>
+
+  <div class="header-buttons">
+    <button id="darkToggle">🌓 حالت تاریک</button>
+    <button onclick="logout()">🚪 خروج</button>
+  </div>
+</header>
+
+
+  <!-- وضعیت لحظه‌ای استاد -->
+  <div class="card">
+    <h2>وضعیت لحظه‌ای استاد</h2>
+    <input type="text" id="location" placeholder="محل فعلی">
+    <input type="text" id="return_time" placeholder="زمان بازگشت">
+    <button onclick="updateStatus()">ثبت وضعیت</button>
+    <p id="statusResult"></p>
+  </div>
+
+  <!-- بخش نوتیفیکیشن Realtime -->
+  <div class="card">
+    <h2>درخواست‌های ملاقات دانشجویان</h2>
+    <div id="notificationsRealtime">در حال بارگذاری…</div>
+  </div>
+
+  <!-- افزودن فعالیت جدید -->
+  <div class="card">
+    <h2>اضافه کردن فعالیت جدید</h2>
+    <input id="new_day" placeholder="روز (شنبه)">
+    <input type="time" id="new_start">
+    <input type="time" id="new_end">
+    <input id="new_location" placeholder="مکان">
+    <input id="new_activity" placeholder="فعالیت">
+    <button onclick="addRow()">➕ اضافه کردن</button>
+    <p id="addResult"></p>
+  </div>
+
+  <!-- برنامه هفتگی -->
+  <div class="card">
+    <h2>برنامه هفتگی</h2>
+    <div id="schedule">در حال بارگذاری…</div>
+  </div>
+
+<div id="toast"></div>
+
+</body>
+</html>
